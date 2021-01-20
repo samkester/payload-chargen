@@ -16,16 +16,28 @@ const StyledItem = styled.div`
 
     p.fullwidth{
         width: 100%;
+        display: block;
     }
 
     p.title{
         font-size: 1.6rem;
+
+        select{
+            font-size: 1.2rem;
+            min-width: 50%;
+            text-align: center;
+
+            option{
+                font-size: 0.8rem;
+            }
+        }
     }
 
     p.paragraph{
         text-align: left;
         padding: 0.25em;
         padding-bottom: 0.5em;
+        font-size: 1.0rem;
     }
 `
 
@@ -40,12 +52,14 @@ export default function AceItem({list}) {
 
     return (
         <StyledItem>
-            <select onChange={setNumHandler} value={num}>
-                {list.map((item, index) => 
-                    <option value={index}>{item.name}</option>
-                )}
-            </select>
-            <p className="fullwidth title">{item?.name}</p>
+            <p className="fullwidth title">
+                <select onChange={setNumHandler} value={num}>
+                    {list.map((item, index) => 
+                        <option value={index}>{item.name}</option>
+                    )}
+                </select>
+            </p>
+            {/* <p className="fullwidth title">{item?.name}</p> */}
             <p>{item?.slot}</p>
             <p>{item?.cost}</p>
             <p className="fullwidth paragraph">{item?.desc}</p>
