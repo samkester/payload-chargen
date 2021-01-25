@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import AceItem from "./AceItem";
+import AceStats from "./AceStats";
 
 // const sampleItem = {
 //     name: "Name",
@@ -143,12 +144,13 @@ function AceFrame() {
         }
     });
 
-    console.log(stats)
+    //console.log(stats)
 
     return (
         <StyledFrame>
             <h1>Your ACE</h1>
             <div>
+                <AceStats stats={stats} />
                 {items.map((itemData, index) => <AceItem props={itemData} key={index} />)}
             </div>
         </StyledFrame>
