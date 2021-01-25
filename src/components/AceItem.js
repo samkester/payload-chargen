@@ -41,21 +41,20 @@ const StyledItem = styled.div`
     }
 `
 
-export default function AceItem({list}) {
-    const [num, setNum] = useState(1);
-
-    const item = list[num];
+export default function AceItem({props}) {
+    const item = props.list[props.value];
 
     const setNumHandler = (event) => {
-        setNum(event.target.value)
+        props.setValue(event.target.value);
     }
 
     return (
         <StyledItem>
             <p className="fullwidth title">
-                <select onChange={setNumHandler} value={num}>
-                    {list.map((item, index) => 
-                        <option value={index}>{item.name}</option>
+                <select onChange={setNumHandler} value={props.value}>
+                    <option value="-1">Empty {props.name}</option>
+                    {props.list.map((item, index) => 
+                        <option value={index} key={item.name}>{item.name}</option>
                     )}
                 </select>
             </p>
