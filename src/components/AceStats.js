@@ -28,7 +28,7 @@ export default function AceStats({stats}) {
         // this could be a .map if stats was an array, but it's not, so it isn't
         const result = []
         for(const stat in stats){
-            result.push(<p index={stat}>{stat}: {stats[stat]}</p>)
+            result.push(<p key={stat}>{stat}: {stats[stat]}</p>)
         }
         return result;
     }

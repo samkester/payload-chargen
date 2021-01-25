@@ -132,10 +132,6 @@ function AceFrame() {
     const stats = {}
     items.forEach(item => 
     {
-        if(item.value == -1){
-            return;
-        }
-
         const itemstats = item.list[item.value]?.stats;
 
         for(const stat in itemstats){
