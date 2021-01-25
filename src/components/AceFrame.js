@@ -93,6 +93,7 @@ const StyledFrame = styled.div`
     border: 2px solid firebrick;
     border-radius: 5px;
     background-color: silver;
+    box-sizing: border-box;
 
     h1{
         color: firebrick;
