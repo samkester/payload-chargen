@@ -128,14 +128,28 @@ function AceFrame() {
         }
     });
 
+    const stats = {}
+    items.forEach(item => 
+    {
+        if(item.value == -1){
+            return;
+        }
+
+        const itemstats = item.list[item.value]?.stats;
+
+        for(const stat in itemstats){
+            // for each stat in the item definition, take that stat and add it to `stats`
+            stats[stat] = itemstats[stat] + (stats[stat] ?? 0);
+        }
+    });
+
+    console.log(stats)
+
     return (
         <StyledFrame>
             <h1>Your ACE</h1>
             <div>
                 {items.map((itemData, index) => <AceItem props={itemData} key={index} />)}
-                {/* <AceItem list={sampleItemList} />
-                <AceItem list={sampleItemList} />
-                <AceItem list={sampleItemList2} /> */}
             </div>
         </StyledFrame>
     );
