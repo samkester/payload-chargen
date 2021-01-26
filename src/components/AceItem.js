@@ -38,6 +38,17 @@ const StyledItem = styled.div`
         padding-bottom: 0.5em;
         font-size: 1.0rem;
     }
+
+    p.weaponbox{
+        font-size: 1.0rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        
+        span{
+            text-align: center;
+        }
+    }
 `
 
 export default function AceItem({props}) {
@@ -60,12 +71,14 @@ export default function AceItem({props}) {
             {/* <p className="fullwidth title">{item?.name}</p> */}
             <p>{item?.slot}</p>
             <p>{item?.price}</p>
-            <p className="fullwidth paragraph">{item?.desc}</p>
-            <p>{item?.base}</p>
-            <p>{item?.mult}</p>
-            <p>{item?.heat}</p>
-            <p>{item?.diff}</p>
+            {item?.diff && <p className="fullwidth weaponbox">
+                <span>{item.diff} to hit</span>
+                <span>Base {item.base ?? 0}</span>
+                <span>Mult {item.mult ?? 0}</span>
+                <span>Heat {item.heat ?? 0}</span>
+                </p>}
             <p className="fullwidth paragraph">{item?.features}</p>
+            <p className="fullwidth paragraph">{item?.desc}</p>
         </StyledItem>
     );
 }
