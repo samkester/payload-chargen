@@ -59,8 +59,13 @@ export default function AceItem({props}) {
             </p>
             {/* <p className="fullwidth title">{item?.name}</p> */}
             <p>{item?.slot}</p>
-            <p>{item?.cost}</p>
+            <p>{item?.price}</p>
             <p className="fullwidth paragraph">{item?.desc}</p>
+            <p>{item?.base}</p>
+            <p>{item?.mult}</p>
+            <p>{item?.heat}</p>
+            <p>{item?.diff}</p>
+            <p className="fullwidth paragraph">{item?.features}</p>
         </StyledItem>
     );
 }
