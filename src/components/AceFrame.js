@@ -117,11 +117,137 @@ function AceFrame() {
 
     const items = [
         {
+            name: "weight class",
+            list: equipmentJson["Weight Class"],
+            value: selections["wc"] ?? -1,
+            setValue: setSelectionCallbackFor("wc"),
+        },
+        {
+            name: "common feature",
+            list: equipmentJson["Common Feature"].sort((first, second) => first.name > second.name),
+            value: selections["common"] ?? -1,
+            setValue: setSelectionCallbackFor("common"),
+        },
+        {
+            name: "unique feature",
+            list: equipmentJson["Unique Feature"].sort((first, second) => first.name > second.name),
+            value: selections["unique"] ?? -1,
+            setValue: setSelectionCallbackFor("unique"),
+        },
+        {
+            name: "frame feature",
+            list: equipmentJson["Frame Feature"].sort((first, second) => first.name > second.name),
+            value: selections["frame"] ?? -1,
+            setValue: setSelectionCallbackFor("frame"),
+        },
+        {
+            name: "armor",
+            list: equipmentJson.Armor.sort((first, second) => first.name > second.name),
+            value: selections["armor"] ?? -1,
+            setValue: setSelectionCallbackFor("armor"),
+        },
+        {
+            name: "drive",
+            list: equipmentJson.Drive.sort((first, second) => first.name > second.name),
+            value: selections["drive"] ?? -1,
+            setValue: setSelectionCallbackFor("drive"),
+        },
+        {
+            name: "engine",
+            list: equipmentJson.Engine.sort((first, second) => first.name > second.name),
+            value: selections["engine"] ?? -1,
+            setValue: setSelectionCallbackFor("engine"),
+        },
+        {
+            name: "computer",
+            list: equipmentJson.Computer.sort((first, second) => first.name > second.name),
+            value: selections["computer"] ?? -1,
+            setValue: setSelectionCallbackFor("computer"),
+        },
+        {
+            name: "right hand",
+            list: equipmentJson["One-Hand"].concat(equipmentJson["Two-Hand"]).sort((first, second) => first.name > second.name),
+            value: selections["righthand"] ?? -1,
+            setValue: setSelectionCallbackFor("righthand"),
+        },
+        {
+            name: "left hand",
+            list: equipmentJson["One-Hand"].concat(equipmentJson["Two-Hand"]).sort((first, second) => first.name > second.name),
+            value: selections["lefthand"] ?? -1,
+            setValue: setSelectionCallbackFor("lefthand"),
+        },
+        {
             name: "head",
             list: equipmentJson.Head.concat(equipmentJson.Hardpoint).sort((first, second) => first.name > second.name),
             value: selections["head"] ?? -1,
             setValue: setSelectionCallbackFor("head"),
-        }
+        },
+        {
+            name: "shoulder",
+            list: equipmentJson.Shoulder.concat(equipmentJson.Hardpoint).concat(equipmentJson["Shoulder Mounted"]).sort((first, second) => first.name > second.name),
+            value: selections["shoulder1"] ?? -1,
+            setValue: setSelectionCallbackFor("shoulder1"),
+        },
+        {
+            name: "shoulder",
+            list: equipmentJson.Shoulder.concat(equipmentJson.Hardpoint).concat(equipmentJson["Shoulder Mounted"]).sort((first, second) => first.name > second.name),
+            value: selections["shoulder2"] ?? -1,
+            setValue: setSelectionCallbackFor("shoulder2"),
+        },
+        {
+            name: "arm",
+            list: equipmentJson.Arm.concat(equipmentJson.Hardpoint).sort((first, second) => first.name > second.name),
+            value: selections["arm1"] ?? -1,
+            setValue: setSelectionCallbackFor("arm1"),
+        },
+        {
+            name: "arm",
+            list: equipmentJson.Arm.concat(equipmentJson.Hardpoint).sort((first, second) => first.name > second.name),
+            value: selections["arm2"] ?? -1,
+            setValue: setSelectionCallbackFor("arm2"),
+        },
+        {
+            name: "torso",
+            list: equipmentJson.Torso.concat(equipmentJson.Hardpoint).sort((first, second) => first.name > second.name),
+            value: selections["torso1"] ?? -1,
+            setValue: setSelectionCallbackFor("torso1"),
+        },
+        {
+            name: "torso",
+            list: equipmentJson.Torso.concat(equipmentJson.Hardpoint).sort((first, second) => first.name > second.name),
+            value: selections["torso2"] ?? -1,
+            setValue: setSelectionCallbackFor("torso2"),
+        },
+        {
+            name: "leg",
+            list: equipmentJson.Leg.concat(equipmentJson.Hardpoint).concat(equipmentJson["Leg [All]"]).sort((first, second) => first.name > second.name),
+            value: selections["leg1"] ?? -1,
+            setValue: setSelectionCallbackFor("leg1"),
+        },
+        {
+            name: "leg",
+            list: equipmentJson.Leg.concat(equipmentJson.Hardpoint).concat(equipmentJson["Leg [All]"]).sort((first, second) => first.name > second.name),
+            value: selections["leg2"] ?? -1,
+            setValue: setSelectionCallbackFor("leg2"),
+        },
+        {
+            name: "cockpit",
+            list: equipmentJson.Cockpit.sort((first, second) => first.name > second.name),
+            value: selections["cockpit1"] ?? -1,
+            setValue: setSelectionCallbackFor("cockpit1"),
+        },
+        {
+            name: "cockpit",
+            list: equipmentJson.Cockpit.sort((first, second) => first.name > second.name),
+            value: selections["cockpit2"] ?? -1,
+            setValue: setSelectionCallbackFor("cockpit2"),
+        },
+        {
+            name: "cockpit",
+            list: equipmentJson.Cockpit.sort((first, second) => first.name > second.name),
+            value: selections["cockpit3"] ?? -1,
+            setValue: setSelectionCallbackFor("cockpit3"),
+        },
     ]
 
     function setSelectionHandler(name, value){

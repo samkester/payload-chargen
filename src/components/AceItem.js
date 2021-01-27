@@ -62,7 +62,7 @@ export default function AceItem({props}) {
         <StyledItem>
             <p className="fullwidth title">
                 <select onChange={setNumHandler} value={props.value}>
-                    <option value="-1">Empty {props.name}</option>
+                    <option value="-1">Select {props.name}</option>
                     {props.list.map((item, index) => 
                         <option value={index} key={item.name}>{item.name}</option>
                     )}
