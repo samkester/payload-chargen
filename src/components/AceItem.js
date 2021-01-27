@@ -2,10 +2,17 @@ import styled from "styled-components";
 
 const StyledItem = styled.div`
     display: flex;
-    width: 18%;
+    width: 20%;
     border: 1px solid firebrick;
     border-radius: 5px;
+    margin: 0 2.5% 3vh 2.5%;
     margin-bottom: 3vh;
+    box-sizing: border-box;
+
+    flex-wrap: wrap;
+    flex-direction: horizontal;
+    justify-content: space-evenly;
+    align-items: flex-start;
 
     p{
         font-size: 1.2rem;

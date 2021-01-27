@@ -4,6 +4,7 @@ import AceItem from "./AceItem";
 import AceStats from "./AceStats";
 //import { equipment } from "../data/equipment";
 import equipmentJson from "../data/Equipment.json";
+import { stat } from "fs";
 
 // const sampleItem = {
 //     name: "Name",
@@ -101,7 +102,7 @@ const StyledFrame = styled.div`
         color: firebrick;
     }
 
-    div{
+    div.mainbox{
         display: flex;
         flex-wrap: wrap;
         flex-direction: horizontal;
@@ -250,6 +251,31 @@ function AceFrame() {
         },
     ]
 
+    const stats = {
+        price: 0,
+        maint: 0,
+        armor: 0,
+        maneuver: 0,
+        heatCap: 0,
+        heatLoss: 0,
+        speed: 0,
+        boost: 0,
+        closeTracking: 0,
+        rangedTracking: 0,
+        sensors: 0,
+        response: 0,
+        handling: 0,
+        systems: 0,
+    }
+
+    for (const stat in stats){
+            items.forEach(item => {
+                stats[stat] += item.list[item.value]?.[stat] ?? 0;
+            })
+    }
+
+    console.log(stats);
+
     function setSelectionHandler(name, value){
         setSelections({...selections, [name]:value});
     }
@@ -257,15 +283,6 @@ function AceFrame() {
     function setSelectionCallbackFor(name){
         return (value) => setSelectionHandler(name, value)
     }
-
-    // const items = equipment.map((slot, index) => {
-    //     return {
-    //         name: slot.name,
-    //         list: slot.list,
-    //         value: selections[index] ?? -1,
-    //         setValue: setSelectionCallbackFor(index)
-    //     }
-    // });
 
     // const stats = {}
     // items.forEach(item => 
@@ -283,8 +300,8 @@ function AceFrame() {
     return (
         <StyledFrame>
             <h1>Your ACE</h1>
-            <div>
-                {/* <AceStats stats={stats} /> */}
+            <div className="mainbox">
+                <AceStats stats={stats} />
                 {items.map((itemData, index) => <AceItem props={itemData} key={index} />)}
             </div>
         </StyledFrame>
