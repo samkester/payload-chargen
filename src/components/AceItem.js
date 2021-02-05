@@ -2,10 +2,17 @@ import styled from "styled-components";
 
 const StyledItem = styled.div`
     display: flex;
-    width: 18%;
+    width: 20%;
     border: 1px solid firebrick;
     border-radius: 5px;
+    margin: 0 2.5% 3vh 2.5%;
     margin-bottom: 3vh;
+    box-sizing: border-box;
+
+    flex-wrap: wrap;
+    flex-direction: horizontal;
+    justify-content: space-evenly;
+    align-items: flex-start;
 
     p{
         font-size: 1.2rem;
@@ -38,6 +45,17 @@ const StyledItem = styled.div`
         padding-bottom: 0.5em;
         font-size: 1.0rem;
     }
+
+    p.weaponbox{
+        font-size: 1.0rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        
+        span{
+            text-align: center;
+        }
+    }
 `
 
 export default function AceItem({props}) {
@@ -51,7 +69,7 @@ export default function AceItem({props}) {
         <StyledItem>
             <p className="fullwidth title">
                 <select onChange={setNumHandler} value={props.value}>
-                    <option value="-1">Empty {props.name}</option>
+                    <option value="-1">Select {props.name}</option>
                     {props.list.map((item, index) => 
                         <option value={index} key={item.name}>{item.name}</option>
                     )}
@@ -59,7 +77,14 @@ export default function AceItem({props}) {
             </p>
             {/* <p className="fullwidth title">{item?.name}</p> */}
             <p>{item?.slot}</p>
-            <p>{item?.cost}</p>
+            <p>{item?.price}</p>
+            {item?.diff && <p className="fullwidth weaponbox">
+                <span>{item.diff} to hit</span>
+                <span>Base {item.base ?? 0}</span>
+                <span>Mult {item.mult ?? 0}</span>
+                <span>Heat {item.heat ?? 0}</span>
+                </p>}
+            <p className="fullwidth paragraph">{item?.features}</p>
             <p className="fullwidth paragraph">{item?.desc}</p>
         </StyledItem>
     );
